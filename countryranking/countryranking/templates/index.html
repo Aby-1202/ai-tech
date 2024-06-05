@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>項目別世界ランキング</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>項目別世界ランキング</h1>
+    <form method="post">
+        <label for="criteria">確認したい項目を選んでください:</label>
+        <select id="criteria" name="criteria">
+            <option value="area">面積</option>
+            <option value="population">人口</option>
+            <option value="density">人口密度</option>
+            <option value="gdp">GDP</option>
+        </select>
+        <button type="submit">ランキングを表示</button>
+    </form>
+    <div id="results">
+        {% if countries %}
+            <h2>ランキング結果</h2>
+            <ul>
+                {% for country in countries %}
+                    <li>{{ country.name }}: {{ country[criteria] }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

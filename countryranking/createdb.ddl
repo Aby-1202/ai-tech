@@ -1,0 +1,8 @@
+CREATE TABLE country (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    area INTEGER NOT NULL,
+    population INTEGER NOT NULL,
+    density REAL NOT NULL,
+    gdp REAL NOT NULL
+);
